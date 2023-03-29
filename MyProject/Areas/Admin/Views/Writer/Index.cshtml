@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Ajax</h1>
+
+<br />
+
+<button type="button" id="btngetlist" class="btn btn-outline-primary">Yazar Listesi</button>
+<br />
+<br />
+
+<div id:"writerlist">
+    Buraya yazarlar gelecek
+</div>
+
+@section scripts{
+    <script>
+        $("#btngetlist").click(function (){
+            $.ajax({
+                contentType:"application.json",
+                dataType:"json",
+                type:"get",
+                url: "/Admin/Writer/WriterList/",
+                success:function(func){
+                    let w =jQuery.parseJSON(func);
+                    Console.log(w);   
+                }
+            });
+        });
+    </script>
+}

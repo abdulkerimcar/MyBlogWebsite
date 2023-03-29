@@ -1,0 +1,61 @@
+﻿@model EntityLayer.Concrete.Writer
+
+@{
+	ViewData["Title"] = "WriterAdd";
+	Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>WriterAdd</h1>
+
+<h4>Writer</h4>
+<hr />
+<div class="row">
+	<div class="col-md-12">
+		<form asp-action="WriterEditProfile"  >
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="WriterID" />
+			<div class="form-group">
+				<label asp-for="WriterName" class="control-label">Yazar Ad Soyad</label>
+				<input asp-for="WriterName" class="form-control" />
+				<span asp-validation-for="WriterName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="WriterAbout" class="control-label">Hakkında</label>
+				<input asp-for="WriterAbout" class="form-control" />
+				<span asp-validation-for="WriterAbout" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label>Resim Yükle</label>
+				<input type="file" name="WriterImage" />
+			</div>
+			@*<div class="form-group">
+			<label asp-for="WriterImage" class="control-label">resim</label>
+			<input asp-for="WriterImage" class="form-control" />
+			<span asp-validation-for="WriterImage" class="text-danger"></span>
+			</div>*@
+			<div class="form-group">
+				<label asp-for="WriterMail" class="control-label">E-mail Adresi</label>
+				<input asp-for="WriterMail" class="form-control" />
+				<span asp-validation-for="WriterMail" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="WriterPassword" class="control-label">Şifre</label>
+				<input asp-for="WriterPassword" class="form-control" />
+				<span asp-validation-for="WriterPassword" class="text-danger"></span>
+			</div>
+			<div class="form-group form-check">
+				<label class="form-check-label">
+					<input class="form-check-input" asp-for="WriterStatus" /> @Html.DisplayNameFor(model => model.WriterStatus)
+				</label>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Kaydet" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+	<a asp-action="Index">Geri Gel</a>
+</div>
+
